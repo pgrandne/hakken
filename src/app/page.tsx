@@ -1,3 +1,5 @@
+'use client'
+
 import { Account } from '../components/Account'
 import { Balance } from '../components/Balance'
 import { BlockNumber } from '../components/BlockNumber'
@@ -16,20 +18,24 @@ import { WatchContractEvents } from '../components/WatchContractEvents'
 import { WatchPendingTransactions } from '../components/WatchPendingTransactions'
 import { WriteContract } from '../components/WriteContract'
 import { WriteContractPrepared } from '../components/WriteContractPrepared'
+import { Game } from '../components/Game'
 
 export function Page() {
-  return (
-    <>
-      <h1 className="text-xl text-center">Hackathon Template</h1>
-      <div className="absolute top-3 right-3">
-        <ConnectKitButton />
-      </div>
+	return (
+		<>
+			{/* <h1 className='text-xl text-center'>Hackathon Template</h1>
+			<div className='absolute top-3 right-3'>
+				<ConnectKitButton />
+			</div> */}
 
-      <Connected>
-        <hr />
-        <h2>Network</h2>
-        <NetworkSwitcher />
-        {/* <br />
+			{/* <Connected>
+				<hr />
+				<h2>Network</h2>
+				<NetworkSwitcher /> */}
+			<div className='h-screen w-screen'>
+				<Game />
+			</div>
+			{/* <br />
         <hr />
         <h2>Account</h2>
         <Account />
@@ -89,9 +95,9 @@ export function Page() {
         <hr />
         <h2>Write Contract (Prepared)</h2>
         <WriteContractPrepared /> */}
-      </Connected>
-    </>
-  )
+			{/* </Connected> */}
+		</>
+	)
 }
 
 export default Page
