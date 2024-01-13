@@ -1,6 +1,6 @@
-# Hackathon Template for Web3 Projects
+# Hakken
 
-Template for Web3 Hackathon
+Discover Web3
 
 This is a [Next.js](https://nextjs.org/) project
 
