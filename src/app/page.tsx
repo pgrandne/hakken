@@ -1,39 +1,25 @@
 'use client'
 
-import { Account } from '../components/Account'
-import { Balance } from '../components/Balance'
-import { BlockNumber } from '../components/BlockNumber'
 import { ConnectKitButton } from '../components/ConnectKitButton'
-import { Connected } from '../components/Connected'
-import { NetworkSwitcher } from '../components/NetworkSwitcher'
-import { ReadContract } from '../components/ReadContract'
-import { ReadContracts } from '../components/ReadContracts'
-import { ReadContractsInfinite } from '../components/ReadContractsInfinite'
-import { SendTransaction } from '../components/SendTransaction'
-import { SendTransactionPrepared } from '../components/SendTransactionPrepared'
-import { SignMessage } from '../components/SignMessage'
-import { SignTypedData } from '../components/SignTypedData'
-import { Token } from '../components/Token'
-import { WatchContractEvents } from '../components/WatchContractEvents'
-import { WatchPendingTransactions } from '../components/WatchPendingTransactions'
-import { WriteContract } from '../components/WriteContract'
-import { WriteContractPrepared } from '../components/WriteContractPrepared'
 import { Game } from '../components/Game'
+import { useAccount } from 'wagmi'
+import { Gltf } from '@react-three/drei'
 
 export function Page() {
+	const { isConnected } = useAccount()
 	return (
 		<>
-			{/* <h1 className='text-xl text-center'>Hackathon Template</h1>
+			<h1 className='text-xl text-center'>Hakken</h1>
 			<div className='absolute top-3 right-3'>
 				<ConnectKitButton />
-			</div> */}
+			</div>
 
 			{/* <Connected>
 				<hr />
 				<h2>Network</h2>
 				<NetworkSwitcher /> */}
-			<div className='h-screen w-screen'>
-				<Game />
+			<div className='h-screen w-screen flex justify-center items-center'>
+				{isConnected ? <Game /> : <div>Please Connect to play</div>}
 			</div>
 			{/* <br />
         <hr />

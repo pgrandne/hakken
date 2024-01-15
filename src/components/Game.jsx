@@ -9,8 +9,10 @@ import { Canvas, useLoader } from '@react-three/fiber'
 import Ecctrl from 'ecctrl'
 import { Physics, RigidBody } from '@react-three/rapier'
 import { Suspense } from 'react'
+import { useAccount } from 'wagmi'
 
 export function Game() {
+	const { isConnected } = useAccount()
 	const keyboardMap = [
 		{ name: 'forward', keys: ['ArrowDown', 'KeyS'] },
 		{ name: 'backward', keys: ['ArrowUp', 'KeyW'] },
@@ -21,7 +23,7 @@ export function Game() {
 	]
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
-			<div>
+			<div className='h-[80%] w-[80%] rounded-md border-8 border-sky-500'>
 				<Canvas shadows>
 					<directionalLight
 						intensity={0.7}
@@ -39,6 +41,7 @@ export function Game() {
 						<KeyboardControls map={keyboardMap}>
 							{/* <Controller maxVelLimit={5}> */}
 							<Ecctrl camInitDis={4}>
+								{isConnected ?
 								<Gltf
 									castShadow
 									receiveShadow
@@ -46,6 +49,9 @@ export function Game() {
 									position={[0, -0.55, 0]}
 									src='/models/ghost_w_tophat-transformed.glb'
 								/>
+								:
+								<div>Please connect</div>
+								}
 							</Ecctrl>
 							{/* </Controller> */}
 						</KeyboardControls>
