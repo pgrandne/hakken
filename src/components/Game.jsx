@@ -5,14 +5,50 @@ import {
 	Circle,
 	KeyboardControls,
 } from '@react-three/drei'
-import { Canvas, useLoader } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import Ecctrl from 'ecctrl'
 import { Physics, RigidBody } from '@react-three/rapier'
-import { Suspense } from 'react'
-import { useAccount } from 'wagmi'
+import { Suspense, useRef, useState } from 'react'
+import * as THREE from 'three';
+
+const Ghost = () => {
+	const ghostRef = useRef()
+
+	useFrame(() => {
+		if (ghostRef.current) {
+			const position = new THREE.Vector3();
+			position.setFromMatrixPosition(ghostRef.current.matrixWorld);
+			console.log(position.x.toFixed(2))
+
+			if (position.x.toFixed(2) ===  '0.63') console.log('enfin')
+		}
+	})
+	return (
+			<Gltf
+				ref={ghostRef}
+				castShadow
+				receiveShadow
+				scale={0.315}
+				position={[0, -0.55, 0]}
+				src='/models/ghost_w_tophat-transformed.glb'
+			/>
+	)
+}
+
+const Street = () => {
+	return (
+		<Gltf
+		castShadow
+		receiveShadow
+		position={[0, -2, 2]}
+		scale={0.8}
+		src='/models/japanese_street_at_night_s.glb'
+	/>
+	)
+}
+
 
 export function Game() {
-	const { isConnected } = useAccount()
 	const keyboardMap = [
 		{ name: 'forward', keys: ['ArrowDown', 'KeyS'] },
 		{ name: 'backward', keys: ['ArrowUp', 'KeyW'] },
@@ -41,28 +77,12 @@ export function Game() {
 						<KeyboardControls map={keyboardMap}>
 							{/* <Controller maxVelLimit={5}> */}
 							<Ecctrl camInitDis={4}>
-								{isConnected ?
-								<Gltf
-									castShadow
-									receiveShadow
-									scale={0.315}
-									position={[0, -0.55, 0]}
-									src='/models/ghost_w_tophat-transformed.glb'
-								/>
-								:
-								<div>Please connect</div>
-								}
+							<Ghost />
 							</Ecctrl>
 							{/* </Controller> */}
 						</KeyboardControls>
 						<RigidBody type='fixed' colliders='trimesh'>
-							<Gltf
-								castShadow
-								receiveShadow
-								position={[0, -2, 2]}
-								scale={0.8}
-								src='/models/japanese_street_at_night_s.glb'
-							/>
+<Street/>
 						</RigidBody>
 					</Physics>
 				</Canvas>
