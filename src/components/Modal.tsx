@@ -2,8 +2,10 @@ import { Dispatch, SetStateAction } from 'react'
 
 export const Modal = ({
 	setModal,
+	setExtensionTime,
 }: {
 	setModal: Dispatch<SetStateAction<boolean>>
+	setExtensionTime: Dispatch<SetStateAction<boolean>>
 }) => {
 	return (
 		<>
@@ -20,7 +22,10 @@ export const Modal = ({
 								Modal Header
 							</div>
 							<div
-								onClick={() => setModal(false)}
+								onClick={() => {
+									setExtensionTime(true)
+									setModal(false)
+								}}
 								className='flex h-auto w-1/12 cursor-pointer justify-center'
 							>
 								<svg

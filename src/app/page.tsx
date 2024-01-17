@@ -1,10 +1,10 @@
 'use client'
 
 import { ConnectKitButton } from '../components/ConnectKitButton'
-import { Game } from '../components/Game'
+import { Game } from '../components/Game/Game'
 import { useAccount } from 'wagmi'
 import { M_PLUS_Rounded_1c } from 'next/font/google'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Modal } from '../components/Modal'
 
 const mplus = M_PLUS_Rounded_1c({
@@ -16,6 +16,11 @@ const mplus = M_PLUS_Rounded_1c({
 export function Page() {
 	const { isConnected } = useAccount()
 	const [modal, setModal] = useState(false)
+	const [extensionTime, setExtensionTime] = useState(false)
+
+	useEffect(() => {
+		if (extensionTime) setTimeout(() => setExtensionTime(false), 5000)
+	}, [extensionTime])
 	return (
 		<>
 			<h1 className='absolute w-screen top-3 text-xl text-center '>Hakken</h1>
@@ -29,7 +34,11 @@ export function Page() {
 				<NetworkSwitcher /> */}
 			<div className='h-screen w-screen flex justify-center items-center'>
 				{isConnected ? (
-					<Game modal={modal} setModal={setModal} />
+					<Game
+						modal={modal}
+						setModal={setModal}
+						extensionTime={extensionTime}
+					/>
 				) : (
 					<div className={`text-lg ${mplus.className}`}>
 						Please Connect to play
@@ -97,7 +106,9 @@ export function Page() {
         <h2>Write Contract (Prepared)</h2>
         <WriteContractPrepared /> */}
 			{/* </Connected> */}
-			{modal && <Modal setModal={setModal} />}
+			{modal && !extensionTime && (
+				<Modal setModal={setModal} setExtensionTime={setExtensionTime} />
+			)}
 		</>
 	)
 }
