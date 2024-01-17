@@ -14,6 +14,9 @@ dependencies:
   '@react-three/rapier':
     specifier: ^1.2.1
     version: 1.2.1(@react-three/fiber@8.15.14)(react@18.2.0)(three@0.160.0)
+  '@react-three/xr':
+    specifier: ^5.7.1
+    version: 5.7.1(@react-three/fiber@8.15.14)(react@18.2.0)(three@0.160.0)
   connectkit:
     specifier: ^1.6.0
     version: 1.6.0(@babel/core@7.23.7)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(typescript@5.3.3)(viem@1.21.4)(wagmi@1.4.13)
@@ -52,6 +55,9 @@ devDependencies:
   '@types/react-dom':
     specifier: ^18.2.18
     version: 18.2.18
+  '@types/three':
+    specifier: ^0.160.0
+    version: 0.160.0
   autoprefixer:
     specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.33)
@@ -1546,6 +1552,21 @@ packages:
       use-asset: 1.0.4(react@18.2.0)
     dev: false
 
+  /@react-three/xr@5.7.1(@react-three/fiber@8.15.14)(react@18.2.0)(three@0.160.0):
+    resolution: {integrity: sha512-GaRUSA+lE8VJF/NrXq7QQByZ4UGHbQQ4rs3QCphZs9fVidK86hGrMOQ0kL79gZc5pa3V5uFGlOhNcUdsTYE3Bg==}
+    peerDependencies:
+      '@react-three/fiber': '>=8.0.0'
+      react: '>=18.0'
+      three: '>=0.141'
+    dependencies:
+      '@react-three/fiber': 8.15.14(react-dom@18.2.0)(react@18.2.0)(three@0.160.0)
+      '@types/webxr': 0.5.10
+      react: 18.2.0
+      three: 0.160.0
+      three-stdlib: 2.29.1(three@0.160.0)
+      zustand: 3.7.2(react@18.2.0)
+    dev: false
+
   /@rushstack/eslint-patch@1.6.1:
     resolution: {integrity: sha512-UY+FGM/2jjMkzQLn8pxcHGMaVLh9aEitG3zY2CiY7XHdLiz3bZOwa6oDxNqEMv7zZkV+cj5DOdz0cQ1BP5Hjgw==}
     dev: true
@@ -1839,7 +1860,6 @@ packages:
 
   /@types/stats.js@0.17.3:
     resolution: {integrity: sha512-pXNfAD3KHOdif9EQXZ9deK82HVNaXP5ZIF5RP2QG6OQFNTaY2YIetfrE9t528vEreGQvEPRDDc8muaoYeK0SxQ==}
-    dev: false
 
   /@types/three@0.160.0:
     resolution: {integrity: sha512-jWlbUBovicUKaOYxzgkLlhkiEQJkhCVvg4W2IYD2trqD2om3VK4DGLpHH5zQHNr7RweZK/5re/4IVhbhvxbV9w==}
@@ -1848,7 +1868,6 @@ packages:
       '@types/webxr': 0.5.10
       fflate: 0.6.10
       meshoptimizer: 0.18.1
-    dev: false
 
   /@types/trusted-types@2.0.7:
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
@@ -1856,7 +1875,6 @@ packages:
 
   /@types/webxr@0.5.10:
     resolution: {integrity: sha512-n3u5sqXQJhf1CS68mw3Wf16FQ4cRPNBBwdYLFzq3UddiADOim1Pn3Y6PBdDilz1vOJF3ybLxJ8ZEDlLIzrOQZg==}
-    dev: false
 
   /@typescript-eslint/parser@6.18.1(eslint@8.56.0)(typescript@5.3.3):
     resolution: {integrity: sha512-zct/MdJnVaRRNy9e84XnVtRv9Vf91/qqe+hZJtKanjojud4wAVy/7lXxJmMyX6X6J+xc6c//YEWvpeif8cAhWA==}
@@ -3774,7 +3792,6 @@ packages:
 
   /fflate@0.6.10:
     resolution: {integrity: sha512-IQrh3lEPM93wVCEczc9SaAOvkmcoQn/G8Bo1e8ZPlY3X3bnAxWaBdvTdvM1hP62iZp0BXWDy4vTAy4fF0+Dlpg==}
-    dev: false
 
   /file-entry-cache@6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
@@ -4788,7 +4805,6 @@ packages:
 
   /meshoptimizer@0.18.1:
     resolution: {integrity: sha512-ZhoIoL7TNV4s5B6+rx5mC//fw8/POGyNxS/DZyCJeiZ12ScLfVwRE/GfsxwiTkMYYD5DmK2/JXnEVXqL4rF+Sw==}
-    dev: false
 
   /micro-ftch@0.3.1:
     resolution: {integrity: sha512-/0LLxhzP0tfiR5hcQebtudP56gUurs2CLkGarnCiB/OqEyUFQ6U3paQi/tgLv0hBJYt2rnr9MNpxz4fiiugstg==}

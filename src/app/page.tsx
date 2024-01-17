@@ -3,13 +3,22 @@
 import { ConnectKitButton } from '../components/ConnectKitButton'
 import { Game } from '../components/Game'
 import { useAccount } from 'wagmi'
-import { Gltf } from '@react-three/drei'
+import { M_PLUS_Rounded_1c } from 'next/font/google'
+import { useState } from 'react'
+import { Modal } from '../components/Modal'
+
+const mplus = M_PLUS_Rounded_1c({
+	weight: ['900'],
+	subsets: ['latin'],
+	display: 'swap',
+})
 
 export function Page() {
 	const { isConnected } = useAccount()
+	const [modal, setModal] = useState(false)
 	return (
 		<>
-			<h1 className='text-xl text-center'>Hakken</h1>
+			<h1 className='absolute w-screen top-3 text-xl text-center '>Hakken</h1>
 			<div className='absolute top-3 right-3'>
 				<ConnectKitButton />
 			</div>
@@ -19,7 +28,13 @@ export function Page() {
 				<h2>Network</h2>
 				<NetworkSwitcher /> */}
 			<div className='h-screen w-screen flex justify-center items-center'>
-				{isConnected ? <Game /> : <div>Please Connect to play</div>}
+				{isConnected ? (
+					<Game modal={modal} setModal={setModal} />
+				) : (
+					<div className={`text-lg ${mplus.className}`}>
+						Please Connect to play
+					</div>
+				)}
 			</div>
 			{/* <br />
         <hr />
@@ -82,6 +97,7 @@ export function Page() {
         <h2>Write Contract (Prepared)</h2>
         <WriteContractPrepared /> */}
 			{/* </Connected> */}
+			{modal && <Modal setModal={setModal} />}
 		</>
 	)
 }
