@@ -23,9 +23,11 @@ export function Page() {
 
 	return (
 		<>
-			<h1 className='absolute w-screen top-3 text-xl text-center '>Hakken</h1>
+			<h1 className='absolute w-screen top-3 text-7xl font-bold text-center text-red-700'>
+				Hakken
+			</h1>
 			<div className='absolute top-3 right-3'>
-				<ConnectKitButton />
+				<ConnectKitButton theme='nouns' />
 			</div>
 
 			{/* <Connected>

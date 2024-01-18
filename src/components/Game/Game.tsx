@@ -26,14 +26,13 @@ export function Game({
 		{ name: 'run', keys: ['Shift'] },
 	]
 	const { progress } = useProgress()
-	console.log(progress)
 
 	return (
 		<Suspense
 			fallback={
 				<button
 					type='button'
-					className='inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white transition ease-in-out duration-150 cursor-not-allowed'
+					className='inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-red-800 transition ease-in-out duration-150 cursor-not-allowed'
 					disabled
 				>
 					<Loading />
@@ -43,7 +42,7 @@ export function Game({
 		>
 			<div
 				className={`h-[80%] w-[80%] rounded-md ${
-					progress === 100 ? 'border-8 border-red-950 bg-red-950' : ''
+					progress === 100 ? 'border-8 border-red-700 bg-red-950' : ''
 				}`}
 			>
 				<Canvas shadows>
