@@ -1,18 +1,22 @@
-import { KeyboardControls } from '@react-three/drei'
+import { KeyboardControls, useProgress } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Physics, RigidBody } from '@react-three/rapier'
-import { Dispatch, SetStateAction, Suspense, useEffect, useRef } from 'react'
+import { Dispatch, SetStateAction, Suspense, useEffect, useState } from 'react'
 import { Ghost } from './Ghost'
 import { InvisibleBox, Street } from './Street'
+import { Loading } from './Loading'
 
 export function Game({
-	modal,
 	setModal,
 }: {
-	modal: boolean
-	setModal: Dispatch<SetStateAction<boolean>>
+	setModal: Dispatch<
+		SetStateAction<{
+			bridge: boolean
+			faucet: boolean
+			swap: boolean
+		}>
+	>
 }) {
-	const keyboardControlsRef = useRef(null)
 	const keyboardMap = [
 		{ name: 'forward', keys: ['ArrowDown', 'KeyS'] },
 		{ name: 'backward', keys: ['ArrowUp', 'KeyW'] },
@@ -21,12 +25,27 @@ export function Game({
 		{ name: 'jump', keys: ['Space'] },
 		{ name: 'run', keys: ['Shift'] },
 	]
-
-	// const noKeyboard: { name: string; keys: [] }[] = []
+	const { progress } = useProgress()
+	console.log(progress)
 
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
-			<div className='h-[80%] w-[80%] rounded-md border-8 border-red-950 bg-red-950 cursor-not-allowed'>
+		<Suspense
+			fallback={
+				<button
+					type='button'
+					className='inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white transition ease-in-out duration-150 cursor-not-allowed'
+					disabled
+				>
+					<Loading />
+					Processing... {progress.toFixed(2)}%{' '}
+				</button>
+			}
+		>
+			<div
+				className={`h-[80%] w-[80%] rounded-md ${
+					progress === 100 ? 'border-8 border-red-950 bg-red-950' : ''
+				}`}
+			>
 				<Canvas shadows>
 					<directionalLight
 						intensity={6}
@@ -42,13 +61,9 @@ export function Game({
 					</directionalLight>
 					<ambientLight intensity={0.2} />
 					<Physics timeStep='vary'>
-						{!modal ? (
-							<KeyboardControls map={keyboardMap}>
-								<Ghost setModal={setModal} />
-							</KeyboardControls>
-						) : (
+						<KeyboardControls map={keyboardMap}>
 							<Ghost setModal={setModal} />
-						)}
+						</KeyboardControls>
 						<RigidBody type='fixed' colliders='trimesh'>
 							<Street />
 							<InvisibleBox />

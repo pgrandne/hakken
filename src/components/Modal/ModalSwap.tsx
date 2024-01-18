@@ -1,11 +1,15 @@
 import { Dispatch, SetStateAction } from 'react'
 
-export const Modal = ({
+export const ModalSwap = ({
 	setModal,
-	setExtensionTime,
 }: {
-	setModal: Dispatch<SetStateAction<boolean>>
-	setExtensionTime: Dispatch<SetStateAction<boolean>>
+	setModal: Dispatch<
+		SetStateAction<{
+			bridge: boolean
+			faucet: boolean
+			swap: boolean
+		}>
+	>
 }) => {
 	return (
 		<>
@@ -19,12 +23,14 @@ export const Modal = ({
 					<div className='flex h-auto w-full flex-col '>
 						<div className='flex h-auto w-full items-center justify-center'>
 							<div className='flex h-auto w-10/12 items-center justify-center py-3 text-2xl font-bold'>
-								Modal Header
+								Modal Swap
 							</div>
 							<div
 								onClick={() => {
-									setExtensionTime(true)
-									setModal(false)
+									setModal((prevModal) => ({
+										...prevModal,
+										swap: false,
+									}))
 								}}
 								className='flex h-auto w-1/12 cursor-pointer justify-center'
 							>
