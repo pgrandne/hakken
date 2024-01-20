@@ -16,6 +16,9 @@
     
     background-image: linear-gradient(rgb(12, 12, 14), rgb(16, 19, 35) ) ;
   }
+  .bg-custom{
+    background-image: linear-gradient(rgb(63 63 115), rgb(53 43 124) );
+  }
   .JNgZB{
     --ck-connectbutton-background: rgb(160, 169, 221) !important;
     background-image: linear-gradient(rgb(162, 172, 229) , rgb(108, 114, 147) ) !important;

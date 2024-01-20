@@ -54,14 +54,14 @@ export const Ghost = ({
 					) {
 						setModal((prevModal) => ({
 							...prevModal,
-							faucet: true,
+							bridge: true,
 						}));
 					}
 
 					if (position.x.toFixed(1) === "1.7") {
 						setModal((prevModal) => ({
 							...prevModal,
-							faucet: true,
+							swap: true,
 						}));
 					}
 					setLastPosition(position.x.toFixed(1));
