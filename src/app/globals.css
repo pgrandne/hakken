@@ -12,10 +12,10 @@
 .move {
     animation: move 3s;
   }
-  body{
+  /* body{
     
-    background-image: linear-gradient(rgb(12, 12, 14), rgb(16, 19, 35) ) ;
-  }
+    background-image: linear-gradient(#0c0c0e, rgb(16, 19, 35) ) ;
+  } */
   .custom-button{
     background-image: linear-gradient(rgb(63 63 115), rgb(53 43 124) );
     padding-top: 0.5rem/* 8px */;
