@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root {
+  --ck-connectbutton-background-start: rgb(79, 94, 166);
+  --ck-connectbutton-background-end: rgb(150, 150, 200);
+}
+
+.ck-connectbutton {
+  background-image: linear-gradient(to right, var(--ck-connectbutton-background-start), var(--ck-connectbutton-background-end)) !important;
+}
+.move {
+    animation: move 3s;
+  }
+  body{
+    
+    background-image: linear-gradient(rgb(12, 12, 14), rgb(16, 19, 35) ) ;
+  }
+  .JNgZB{
+    --ck-connectbutton-background: rgb(160, 169, 221) !important;
+    background-image: linear-gradient(rgb(162, 172, 229) , rgb(108, 114, 147) ) !important;
+  }
+  
+  

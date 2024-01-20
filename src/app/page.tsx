@@ -1,40 +1,63 @@
-'use client'
+"use client";
 
-import { ConnectKitButton } from '../components/ConnectKitButton'
-import { Game } from '../components/Game/Game'
-import { useAccount } from 'wagmi'
-import { M_PLUS_Rounded_1c } from 'next/font/google'
-import { useState } from 'react'
-import { ModalBridge, ModalFaucet, ModalSwap } from '../components/Modal'
+import { ConnectKitButton } from "../components/ConnectKitButton";
+import { Game } from "../components/Game/Game";
+import { useAccount } from "wagmi";
+import { M_PLUS_Rounded_1c } from "next/font/google";
+import { useState } from "react";
+import { ModalBridge, ModalFaucet, ModalSwap } from "../components/Modal";
+import Image from "next/Image";
+import { Raleway } from "next/font/google";
+
+// If loading a variable font, you don't need to specify the font weight
+const raleway = Raleway({
+	weight: "400",
+	subsets: ["latin"],
+});
 
 const mplus = M_PLUS_Rounded_1c({
-	weight: ['900'],
-	subsets: ['latin'],
-	display: 'swap',
-})
+	weight: ["500"],
+	subsets: ["latin"],
+	display: "swap",
+});
 
 export function Page() {
-	const { isConnected } = useAccount()
+	const { isConnected } = useAccount();
+	const [isHovered, setIsHovered] = useState(false);
 	const [modal, setModal] = useState({
 		bridge: false,
 		faucet: false,
 		swap: false,
-	})
+	});
 
 	return (
 		<>
-			<h1 className='absolute w-screen top-3 text-7xl font-bold text-center text-red-700'>
-				Hakken
+			<div className="absolute  hover:animate-bounce ">
+				<Image
+					src="/images/ghosty.png"
+					width={70}
+					height={70}
+					alt="Picture of the author"
+					onMouseEnter={() => setIsHovered(true)}
+					onMouseLeave={() => setIsHovered(false)}
+				/>
+			</div>
+
+			{/* <  Image src = '../../public/images/ghosty.png'/> */}
+			<h1
+				className={`absolute w-screen top-3 text-5xl text-center text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-violet-300 ${mplus.className}`}
+			>
+				HAKKEN 発見
 			</h1>
-			<div className='absolute top-3 right-3'>
-				<ConnectKitButton theme='nouns' />
+			<div className="absolute top-3 right-3">
+				<ConnectKitButton theme="nouns" />
 			</div>
 
 			{/* <Connected>
 				<hr />
 				<h2>Network</h2>
 				<NetworkSwitcher /> */}
-			<div className='h-screen w-screen flex justify-center items-center'>
+			<div className="h-screen w-screen flex justify-center items-center">
 				{isConnected ? (
 					<Game setModal={setModal} />
 				) : (
@@ -108,7 +131,7 @@ export function Page() {
 			{modal.faucet && <ModalFaucet setModal={setModal} />}
 			{modal.swap && <ModalSwap setModal={setModal} />}
 		</>
-	)
+	);
 }
 
-export default Page
+export default Page;
