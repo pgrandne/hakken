@@ -41,18 +41,19 @@ export default function Home() {
 			<div className='absolute top-3 right-3'>
 				<ConnectKitButton theme='nouns' />
 			</div>
-			{/* <div className='h-screen w-screen flex justify-center items-center'>
+			<div className='h-screen w-screen flex justify-center items-center'>
 				{isConnected &&
 				address &&
 				chain &&
 				(chain.id === sepolia.id || chain.id === goerli.id) ? (
-					<Game setModal={setModal} />
+					// <Game setModal={setModal} />
+					<span>test</span>
 				) : (
 					<div className={`text-lg text-white ${raleway.className}`}>
 						Please Connect to play
 					</div>
 				)}
-			</div> */}
+			</div>
 			{address && modal.bridge && (
 				<ModalBridge address={address} setModal={setModal} />
 			)}
