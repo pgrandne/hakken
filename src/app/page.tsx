@@ -5,7 +5,7 @@ import { Game } from '../components/Game/Game'
 import { useAccount, useNetwork } from 'wagmi'
 import { M_PLUS_Rounded_1c } from 'next/font/google'
 import { useState } from 'react'
-import { ModalBridge, ModalFaucet, ModalSwap } from '../components/Modal'
+import { ModalBridge, ModalFaucet, ModalReward } from '../components/Modal'
 import Image from 'next/image'
 import { Raleway } from 'next/font/google'
 import { polygonMumbai, sepolia } from 'wagmi/chains'
@@ -29,7 +29,7 @@ export function Page() {
 	const [modal, setModal] = useState({
 		bridge: false,
 		faucet: false,
-		swap: false,
+		reward: false,
 	})
 
 	return (
@@ -70,8 +70,8 @@ export function Page() {
 			{address && modal.faucet && (
 				<ModalFaucet address={address} setModal={setModal} />
 			)}
-			{address && modal.swap && (
-				<ModalSwap address={address} setModal={setModal} />
+			{address && modal.reward && (
+				<ModalReward address={address} setModal={setModal} />
 			)}
 			<ToastContainer />
 		</>

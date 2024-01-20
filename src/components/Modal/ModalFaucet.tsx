@@ -15,7 +15,7 @@ export const ModalFaucet = ({
 		SetStateAction<{
 			bridge: boolean
 			faucet: boolean
-			swap: boolean
+			reward: boolean
 		}>
 	>
 }) => {

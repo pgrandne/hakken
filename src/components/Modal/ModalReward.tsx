@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 
-export const ModalSwap = ({
-	address,	
+export const ModalReward = ({
+	address,
 	setModal,
 }: {
 	address: `0x${string}`
@@ -9,7 +9,7 @@ export const ModalSwap = ({
 		SetStateAction<{
 			bridge: boolean
 			faucet: boolean
-			swap: boolean
+			reward: boolean
 		}>
 	>
 }) => {
@@ -25,13 +25,13 @@ export const ModalSwap = ({
 					<div className='flex h-auto w-full flex-col '>
 						<div className='flex h-auto w-full items-center justify-center'>
 							<div className='flex h-auto w-10/12 items-center justify-center py-3 text-2xl font-bold'>
-								Modal Swap
+								Modal Reward
 							</div>
 							<div
 								onClick={() => {
 									setModal((prevModal) => ({
 										...prevModal,
-										swap: false,
+										reward: false,
 									}))
 								}}
 								className='flex h-auto w-1/12 cursor-pointer justify-center'
