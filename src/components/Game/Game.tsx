@@ -1,5 +1,3 @@
-'use client'
-
 import { KeyboardControls, useProgress } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Physics, RigidBody } from '@react-three/rapier'

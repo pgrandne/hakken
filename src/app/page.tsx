@@ -8,6 +8,8 @@ import { ModalBridge, ModalFaucet, ModalReward } from '../components/Modal'
 import Image from 'next/image'
 import { Raleway } from 'next/font/google'
 import { goerli, sepolia } from 'wagmi/chains'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const raleway = Raleway({
 	weight: '400',
@@ -24,7 +26,7 @@ export default function Home() {
 	})
 
 	return (
-		<>
+		<div className='h-screen w-screen'>
 			<div className={`absolute ${!isConnected ? 'top-4 animate-bounce' : ''}`}>
 				<Image
 					src='/images/ghosty.png'
@@ -41,14 +43,16 @@ export default function Home() {
 			<div className='absolute top-3 right-3'>
 				<ConnectKitButton theme='nouns' />
 			</div>
-			<div className='h-screen w-screen flex justify-center items-center'>
+
+			<div className='flex justify-center items-center'>
 				{isConnected &&
 				address &&
 				chain &&
 				(chain.id === sepolia.id || chain.id === goerli.id) ? (
-					<Game setModal={setModal} />
+					// <Game setModal={setModal} />
+					<div>coucou</div>
 				) : (
-					<div className={`text-lg text-white ${raleway.className}`}>
+					<div className={`text-lg text-white font-semibold`}>
 						Please Connect to play
 					</div>
 				)}
@@ -62,6 +66,7 @@ export default function Home() {
 			{address && modal.reward && (
 				<ModalReward address={address} setModal={setModal} />
 			)}
-		</>
+			<ToastContainer position='bottom-right' />
+		</div>
 	)
 }
