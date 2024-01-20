@@ -22,8 +22,7 @@ const mplus = M_PLUS_Rounded_1c({
 });
 
 export function Page() {
-	const { isConnected } = useAccount();
-	const [isHovered, setIsHovered] = useState(false);
+	const { address, isConnected } = useAccount()
 	const [modal, setModal] = useState({
 		bridge: false,
 		faucet: false,
@@ -38,8 +37,6 @@ export function Page() {
 					width={70}
 					height={70}
 					alt="Picture of the author"
-					onMouseEnter={() => setIsHovered(true)}
-					onMouseLeave={() => setIsHovered(false)}
 				/>
 			</div>
 
@@ -52,13 +49,8 @@ export function Page() {
 			<div className="absolute top-3 right-3">
 				<ConnectKitButton theme="nouns" />
 			</div>
-
-			{/* <Connected>
-				<hr />
-				<h2>Network</h2>
-				<NetworkSwitcher /> */}
-			<div className="h-screen w-screen flex justify-center items-center">
-				{isConnected ? (
+			<div className='h-screen w-screen flex justify-center items-center'>
+				{isConnected && address ? (
 					<Game setModal={setModal} />
 				) : (
 					<div className={`text-lg ${mplus.className}`}>
@@ -127,9 +119,15 @@ export function Page() {
         <h2>Write Contract (Prepared)</h2>
         <WriteContractPrepared /> */}
 			{/* </Connected> */}
-			{modal.bridge && <ModalBridge setModal={setModal} />}
-			{modal.faucet && <ModalFaucet setModal={setModal} />}
-			{modal.swap && <ModalSwap setModal={setModal} />}
+			{address && modal.bridge && (
+				<ModalBridge address={address} setModal={setModal} />
+			)}
+			{address && !modal.faucet && (
+				<ModalFaucet address={address} setModal={setModal} />
+			)}
+			{address && modal.swap && (
+				<ModalSwap address={address} setModal={setModal} />
+			)}
 		</>
 	);
 }

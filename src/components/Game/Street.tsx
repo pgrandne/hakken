@@ -1,7 +1,6 @@
 import { Box, Circle, Gltf, Plane, Text, useTexture } from "@react-three/drei";
 import { useThree, useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
-import { useControls } from "leva";
 
 const chainlink = new TextureLoader().load("/images/chainlink.png");
 

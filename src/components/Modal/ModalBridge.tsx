@@ -1,8 +1,10 @@
 import { Dispatch, SetStateAction } from 'react'
 
 export const ModalBridge = ({
+	address,	
 	setModal,
 }: {
+	address: `0x${string}`
 	setModal: Dispatch<
 		SetStateAction<{
 			bridge: boolean
