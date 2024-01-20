@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 import { useNetwork, useSwitchNetwork } from 'wagmi'
 import { sepolia } from 'wagmi/chains'
 import { BalanceSepolia } from './components/BalanceSepolia'
-import { BalanceMumbai } from './components/BalanceMumbai'
+import { BalanceGoerli } from './components/BalanceGoerli'
 import { Faucet } from './components/Faucet'
 import { toast } from 'react-toastify'
 import { IconCross } from '../../utils/IconCross'
@@ -37,13 +37,11 @@ export const ModalFaucet = ({
 			></div>
 
 			<div className='fixed inset-0 flex items-center justify-center z-50'>
-				<div className=' h-3/4 w-11/12 rounded-md bg-white  p-5 md:w-1/2 '>
+				<div className='h-auto w-11/12 rounded-md bg-gradient-to-r from-slate-400 to-violet-300 p-5 md:w-1/2 '>
 					<div className='flex h-auto w-full flex-col '>
-						<div className='flex h-auto w-full items-center justify-center'>
-							<BalanceSepolia address={address} />
-							<BalanceMumbai address={address} />
-							<div className='flex h-1/2 w-10/12 items-center justify-center py-3 text-2xl font-bold'>
-								Claim 100 Free GHO
+						<div className='flex h-auto w-full items-center justify-center relative'>
+							<div className='flex h-auto w-10/12 items-center justify-center py-3 text-2xl font-bold '>
+								<h1 className='text-slate-700 '>Claim GHO!</h1>
 							</div>
 							<div
 								onClick={() => {
@@ -61,12 +59,27 @@ export const ModalFaucet = ({
 							Welcome on Gho Street. Here you can claim 100 Gho ! In next shops
 							you can bridge these Gho and collect a NFT
 						</div>
-						<button onClick={notify}>Notify !</button>
+						<button
+							className='custom-button'
+							onClick={() => {
+								setModal((prevModal) => ({
+									...prevModal,
+									faucet: true,
+								}))
+
+								notify()
+							}}
+						>
+							Notify !
+						</button>
 						<Faucet />
 						{chain && chain.id === sepolia.id ? (
 							<div>Bonne chain id</div>
 						) : (
-							<button onClick={() => switchNetwork?.(sepolia.id)}>
+							<button
+								className='custom-button'
+								onClick={() => switchNetwork?.(sepolia.id)}
+							>
 								Switch
 								{isLoading && pendingChainId === sepolia.id && ' (switching)'}
 							</button>

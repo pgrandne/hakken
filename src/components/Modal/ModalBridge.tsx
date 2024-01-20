@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import Image from 'next/image'
 import { IconCross } from '../../utils/IconCross'
 
@@ -15,12 +15,6 @@ export const ModalBridge = ({
 		}>
 	>
 }) => {
-	const [isButtonDisabled, setButtonDisabled] = useState(true)
-
-	const handleAccept = async () => {
-		setButtonDisabled(false)
-	}
-
 	return (
 		<>
 			<div
@@ -68,20 +62,11 @@ export const ModalBridge = ({
 									height={25}
 									alt='Picture of the author'
 								/>{' '}
-								<span className='font-bold'>Mumbai</span>
+								<span className='font-bold'>Goerli</span>
 							</div>
 							<div className='flex justify-center p-4 gap-6 w-full'>
-								<button className='bg-custom py-2 px-10 rounded-md text-violet-200'>
-									Approve
-								</button>
-								<button
-									onClick={handleAccept}
-									className={`py-2 px-10 rounded-md text-violet-200 ${
-										isButtonDisabled ? 'bg-gray-600' : 'bg-custom'
-									}`}
-								>
-									Bridge
-								</button>
+								<button className='custom-button'>Approve</button>
+								<button className='custom-button'>Bridge</button>
 							</div>
 						</div>
 					</div>
