@@ -12,5 +12,9 @@ module.exports = {
 			url: `https://eth-sepolia.g.alchemy.com/v2/${alchemyId}`,
 			accounts: [privateKey],
 		},
+		mumbai: {
+			url: `https://polygon-mumbai.g.alchemy.com/v2/${alchemyId}`,
+			accounts: [privateKey],
+		},
 	},
 }

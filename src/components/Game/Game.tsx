@@ -60,9 +60,9 @@ export function Game({
 					</directionalLight>
 					<ambientLight intensity={0.2} />
 					<Physics timeStep='vary'>
-						<KeyboardControls map={keyboardMap}>
+						{/* <KeyboardControls map={keyboardMap}>
 							<Ghost setModal={setModal} />
-						</KeyboardControls>
+						</KeyboardControls> */}
 						<RigidBody type='fixed' colliders='trimesh'>
 							<Street />
 							<InvisibleBox />
