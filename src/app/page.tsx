@@ -26,7 +26,7 @@ export default function Home() {
 	})
 
 	return (
-		<div className='h-screen w-screen'>
+		<>
 			<div className={`absolute ${!isConnected ? 'top-4 animate-bounce' : ''}`}>
 				<Image
 					src='/images/ghosty.png'
@@ -44,7 +44,7 @@ export default function Home() {
 				<ConnectKitButton theme='nouns' />
 			</div>
 
-			<div className='flex justify-center items-center'>
+			<div className='h-screen w-screen flex justify-center items-center'>
 				{isConnected &&
 				address &&
 				chain &&
@@ -66,6 +66,6 @@ export default function Home() {
 				<ModalReward address={address} setModal={setModal} />
 			)}
 			<ToastContainer position='bottom-right' />
-		</div>
+		</>
 	)
 }
