@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
+import { IconCross } from '../../utils/IconCross'
 
 export const ModalReward = ({
 	address,
@@ -36,21 +37,7 @@ export const ModalReward = ({
 								}}
 								className='flex h-auto w-1/12 cursor-pointer justify-center'
 							>
-								<svg
-									xmlns='http://www.w3.org/2000/svg'
-									width='24'
-									height='24'
-									viewBox='0 0 24 24'
-									fill='none'
-									stroke='#000000'
-									strokeWidth='2'
-									strokeLinecap='round'
-									strokeLinejoin='round'
-									className='feather feather-x'
-								>
-									<line x1='18' y1='6' x2='6' y2='18'></line>
-									<line x1='6' y1='6' x2='18' y2='18'></line>
-								</svg>
+								<IconCross />
 							</div>
 						</div>
 						<div className='flex h-auto w-full items-center justify-center rounded bg-gray-200 py-10 px-2 text-center text-gray-500'>

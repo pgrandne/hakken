@@ -1,4 +1,4 @@
-export const Cross = () => (
+export const IconCross = () => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
 		width='24'

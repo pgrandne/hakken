@@ -5,6 +5,7 @@ import { BalanceSepolia } from './components/BalanceSepolia'
 import { BalanceMumbai } from './components/BalanceMumbai'
 import { Faucet } from './components/Faucet'
 import { toast } from 'react-toastify'
+import { IconCross } from '../../utils/IconCross'
 
 export const ModalFaucet = ({
 	address,
@@ -52,7 +53,9 @@ export const ModalFaucet = ({
 									}))
 								}}
 								className='flex h-auto w-1/12 cursor-pointer justify-center'
-							></div>
+							>
+								<IconCross />
+							</div>
 						</div>
 						<div className='flex h-auto w-full items-center justify-center rounded bg-gray-200 py-10 px-2 text-center text-gray-500'>
 							Welcome on Gho Street. Here you can claim 100 Gho ! In next shops
