@@ -19,9 +19,9 @@ export const BalanceGoerli = ({ address }: { address: `0x${string}` }) => {
 		<div className="flex flex-col w-4/12">
 			<div className="bg-[#f8f8f836] rounded-md p-2 text-center border border-gray-400 box-shadow-custom">
 				<p className="text-indigo-950">Goerli</p>
-				<scan className="balance py-1 px-4 rounded-md border w-full font-light text-sm">
+				<span className="balance py-1 px-4 rounded-md border w-full font-light text-sm">
 					{balanceWithoutDecimals} {data?.symbol}
-				</scan>
+				</span>
 				<p className="font-light text-sm mt-1">Balance</p>
 			</div>
 		</div>
