@@ -26,7 +26,17 @@
     --tw-text-opacity: 1;
     color: rgb(221 214 254 / var(--tw-text-opacity));
   }
-
+  .bg-custom{
+    background-image: linear-gradient(rgb(73, 73, 133), rgb(46, 37, 114) );
+  }
+  .box-shadow-custom{
+    box-shadow: 2px 12px 20px 0px #48475b;
+  }
+  .balance{
+    border: 0.1px solid #585252;
+    background-color: #2b266a;
+    color: rgb(188, 189, 197);
+  }
   .custom-button:disabled{
     --tw-bg-opacity: 0.1;
     background-image: none;

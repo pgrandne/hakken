@@ -42,14 +42,16 @@ export function Game({
 		>
 			<div
 				className={`h-[70%] w-[80%] rounded-md ${
-					progress === 100 ? "from-slate-800  bg-indigo-950" : ""
+					progress === 100
+						? "bg-gradient-to-b from-purple-500 via-sky-600 to-fuchsia-900 "
+						: ""
 				}`}
 			>
 				<Canvas shadows>
 					<directionalLight
-						intensity={6}
+						intensity={5}
 						color="#6e2fb4"
-						castShadow
+						castShadow={false}
 						shadow-bias={-0.004}
 						position={[10, 40, 60]}
 					>
