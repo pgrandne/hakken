@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
   --ck-connectbutton-background-start: rgb(79, 94, 166);
   --ck-connectbutton-background-end: rgb(150, 150, 200);
