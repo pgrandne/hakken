@@ -46,8 +46,7 @@ export default function Home() {
 				address &&
 				chain &&
 				(chain.id === sepolia.id || chain.id === goerli.id) ? (
-					// <Game setModal={setModal} />
-					<span>test</span>
+					<Game setModal={setModal} />
 				) : (
 					<div className={`text-lg text-white ${raleway.className}`}>
 						Please Connect to play
