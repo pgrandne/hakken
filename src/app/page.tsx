@@ -1,19 +1,19 @@
 'use client'
 
-import { ConnectKitButton } from '../components/ConnectKitButton'
-import { Game } from '../components/Game/Game'
-import { useAccount, useNetwork } from 'wagmi'
-import { useState } from 'react'
-import { ModalBridge, ModalFaucet, ModalReward } from '../components/Modal'
-import Image from 'next/image'
-import { Raleway } from 'next/font/google'
-import { goerli, sepolia } from 'wagmi/chains'
-import { ToastContainer } from 'react-toastify'
+// import { ConnectKitButton } from '../components/ConnectKitButton'
+// import { Game } from '../components/Game/Game'
+// import { useAccount, useNetwork } from 'wagmi'
+// import { useState } from 'react'
+// import { ModalBridge, ModalFaucet, ModalReward } from '../components/Modal'
+// import Image from 'next/image'
+// import { Raleway } from 'next/font/google'
+// import { goerli, sepolia } from 'wagmi/chains'
+// import { ToastContainer } from 'react-toastify'
 
-const raleway = Raleway({
-	weight: '400',
-	subsets: ['latin'],
-})
+// const raleway = Raleway({
+// 	weight: '400',
+// 	subsets: ['latin'],
+// })
 
 export function Page() {
 	// const { address, isConnected } = useAccount()
