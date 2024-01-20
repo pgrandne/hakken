@@ -67,7 +67,7 @@ export function Page() {
 			{address && modal.bridge && (
 				<ModalBridge address={address} setModal={setModal} />
 			)}
-			{address && !modal.faucet && (
+			{address && modal.faucet && (
 				<ModalFaucet address={address} setModal={setModal} />
 			)}
 			{address && modal.swap && (
