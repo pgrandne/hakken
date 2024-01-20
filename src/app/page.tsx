@@ -15,7 +15,7 @@
 // 	subsets: ['latin'],
 // })
 
-export function Page() {
+export default function Home() {
 	// const { address, isConnected } = useAccount()
 	// const { chain } = useNetwork()
 	// const [modal, setModal] = useState({
@@ -67,5 +67,3 @@ export function Page() {
 		</>
 	)
 }
-
-export default Page
