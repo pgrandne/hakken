@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.19;
 
 // Import the ERC20 interface
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
@@ -24,6 +24,10 @@ contract Faucet {
     function claim() public {
         uint decimals = token.decimals();
         uint amount = 100 * 10 ** decimals;
+
+        // Check the balance of the sender
+        uint balance = token.balanceOf(msg.sender);
+        require(balance < amount, "You already have 100 or more tokens");
 
         // Transfer the tokens
         require(token.transfer(msg.sender, amount), "Transfer failed");

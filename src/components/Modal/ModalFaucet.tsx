@@ -3,6 +3,8 @@ import { useNetwork, useSwitchNetwork } from 'wagmi'
 import { sepolia } from 'wagmi/chains'
 import { BalanceSepolia } from './components/BalanceSepolia'
 import { BalanceMumbai } from './components/BalanceMumbai'
+import { Faucet } from './components/Faucet'
+import { toast } from 'react-toastify'
 
 export const ModalFaucet = ({
 	address,
@@ -17,6 +19,7 @@ export const ModalFaucet = ({
 		}>
 	>
 }) => {
+	const notify = () => toast('Wow so easy !')
 	const { chain } = useNetwork()
 	const { chains, error, isLoading, pendingChainId, switchNetwork } =
 		useSwitchNetwork()
@@ -55,9 +58,8 @@ export const ModalFaucet = ({
 							Welcome on Gho Street. Here you can claim 100 Gho ! In next shops
 							you can bridge these Gho and collect a NFT
 						</div>
-						<button className='m-2 border-8 border-red-700' onClick={Claim}>
-							Claim
-						</button>
+						<button onClick={notify}>Notify !</button>
+						<Faucet />
 						{chain && chain.id === sepolia.id ? (
 							<div>Bonne chain id</div>
 						) : (

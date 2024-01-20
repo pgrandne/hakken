@@ -9,6 +9,7 @@ import { ModalBridge, ModalFaucet, ModalSwap } from '../components/Modal'
 import Image from 'next/image'
 import { Raleway } from 'next/font/google'
 import { polygonMumbai, sepolia } from 'wagmi/chains'
+import { ToastContainer } from 'react-toastify'
 
 // If loading a variable font, you don't need to specify the font weight
 const raleway = Raleway({
@@ -72,6 +73,7 @@ export function Page() {
 			{address && modal.swap && (
 				<ModalSwap address={address} setModal={setModal} />
 			)}
+			<ToastContainer />
 		</>
 	)
 }
