@@ -1,42 +1,44 @@
-"use client";
+'use client'
 
-import { ConnectKitButton } from "../components/ConnectKitButton";
-import { Game } from "../components/Game/Game";
-import { useAccount } from "wagmi";
-import { M_PLUS_Rounded_1c } from "next/font/google";
-import { useState } from "react";
-import { ModalBridge, ModalFaucet, ModalSwap } from "../components/Modal";
-import Image from "next/Image";
-import { Raleway } from "next/font/google";
+import { ConnectKitButton } from '../components/ConnectKitButton'
+import { Game } from '../components/Game/Game'
+import { useAccount, useNetwork } from 'wagmi'
+import { M_PLUS_Rounded_1c } from 'next/font/google'
+import { useState } from 'react'
+import { ModalBridge, ModalFaucet, ModalSwap } from '../components/Modal'
+import Image from 'next/image'
+import { Raleway } from 'next/font/google'
+import { polygonMumbai, sepolia } from 'wagmi/chains'
 
 // If loading a variable font, you don't need to specify the font weight
 const raleway = Raleway({
-	weight: "400",
-	subsets: ["latin"],
-});
+	weight: '400',
+	subsets: ['latin'],
+})
 
 const mplus = M_PLUS_Rounded_1c({
-	weight: ["500"],
-	subsets: ["latin"],
-	display: "swap",
-});
+	weight: ['500'],
+	subsets: ['latin'],
+	display: 'swap',
+})
 
 export function Page() {
 	const { address, isConnected } = useAccount()
+	const { chain } = useNetwork()
 	const [modal, setModal] = useState({
 		bridge: false,
 		faucet: false,
 		swap: false,
-	});
+	})
 
 	return (
 		<>
-			<div className="absolute  hover:animate-bounce ">
+			<div className='absolute  hover:animate-bounce '>
 				<Image
-					src="/images/ghosty.png"
+					src='/images/ghosty.png'
 					width={70}
 					height={70}
-					alt="Picture of the author"
+					alt='Picture of the author'
 				/>
 			</div>
 
@@ -46,11 +48,14 @@ export function Page() {
 			>
 				HAKKEN 発見
 			</h1>
-			<div className="absolute top-3 right-3">
-				<ConnectKitButton theme="nouns" />
+			<div className='absolute top-3 right-3'>
+				<ConnectKitButton theme='nouns' />
 			</div>
 			<div className='h-screen w-screen flex justify-center items-center'>
-				{isConnected && address ? (
+				{isConnected &&
+				address &&
+				chain &&
+				(chain.id === sepolia.id || chain.id === polygonMumbai.id) ? (
 					<Game setModal={setModal} />
 				) : (
 					<div className={`text-lg ${mplus.className}`}>
@@ -58,67 +63,6 @@ export function Page() {
 					</div>
 				)}
 			</div>
-			{/* <br />
-        <hr />
-        <h2>Account</h2>
-        <Account />
-        <br />
-        <hr />
-        <h2>Balance</h2>
-        <Balance />
-        <br />
-        <hr />
-        <h2>Block Number</h2>
-        <BlockNumber />
-        <br />
-        <hr />
-        <h2>Read Contract</h2>
-        <ReadContract />
-        <br />
-        <hr />
-        <h2>Read Contracts</h2>
-        <ReadContracts />
-        <br />
-        <hr />
-        <h2>Read Contracts Infinite</h2>
-        <ReadContractsInfinite />
-        <br />
-        <hr />
-        <h2>Send Transaction</h2>
-        <SendTransaction />
-        <br />
-        <hr />
-        <h2>Send Transaction (Prepared)</h2>
-        <SendTransactionPrepared />
-        <br />
-        <hr />
-        <h2>Sign Message</h2>
-        <SignMessage />
-        <br />
-        <hr />
-        <h2>Sign Typed Data</h2>
-        <SignTypedData />
-        <br />
-        <hr />
-        <h2>Token</h2>
-        <Token />
-        <br />
-        <hr />
-        <h2>Watch Contract Events</h2>
-        <WatchContractEvents />
-        <br />
-        <hr />
-        <h2>Watch Pending Transactions</h2>
-        <WatchPendingTransactions />
-        <br />
-        <hr />
-        <h2>Write Contract</h2>
-        <WriteContract />
-        <br />
-        <hr />
-        <h2>Write Contract (Prepared)</h2>
-        <WriteContractPrepared /> */}
-			{/* </Connected> */}
 			{address && modal.bridge && (
 				<ModalBridge address={address} setModal={setModal} />
 			)}
@@ -129,7 +73,7 @@ export function Page() {
 				<ModalSwap address={address} setModal={setModal} />
 			)}
 		</>
-	);
+	)
 }
 
-export default Page;
+export default Page
