@@ -1,20 +1,8 @@
 import { Dispatch, SetStateAction } from 'react'
-import { useBalance, useNetwork, useSwitchNetwork } from 'wagmi'
-import { Cross } from '../../utils/cross'
-
-const Balance = () => {
-	const { data, isError, isLoading } = useBalance({
-		address: '0xA0Cf798816D4b9b9866b5330EEa46a18382f251e',
-	})
-
-	if (isLoading) return <div>Fetching balance…</div>
-	if (isError) return <div>Error fetching balance</div>
-	return (
-		<div>
-			Balance: {data?.formatted} {data?.symbol}
-		</div>
-	)
-}
+import { useNetwork, useSwitchNetwork } from 'wagmi'
+import { sepolia } from 'wagmi/chains'
+import { BalanceSepolia } from './components/BalanceSepolia'
+import { BalanceMumbai } from './components/BalanceMumbai'
 
 export const ModalFaucet = ({
 	address,
@@ -48,6 +36,8 @@ export const ModalFaucet = ({
 				<div className=' h-3/4 w-11/12 rounded-md bg-white  p-5 md:w-1/2 '>
 					<div className='flex h-auto w-full flex-col '>
 						<div className='flex h-auto w-full items-center justify-center'>
+							<BalanceSepolia address={address} />
+							<BalanceMumbai address={address} />
 							<div className='flex h-1/2 w-10/12 items-center justify-center py-3 text-2xl font-bold'>
 								Claim 100 Free GHO
 							</div>
@@ -59,9 +49,7 @@ export const ModalFaucet = ({
 									}))
 								}}
 								className='flex h-auto w-1/12 cursor-pointer justify-center'
-							>
-								<Cross />
-							</div>
+							></div>
 						</div>
 						<div className='flex h-auto w-full items-center justify-center rounded bg-gray-200 py-10 px-2 text-center text-gray-500'>
 							Welcome on Gho Street. Here you can claim 100 Gho ! In next shops
@@ -70,12 +58,12 @@ export const ModalFaucet = ({
 						<button className='m-2 border-8 border-red-700' onClick={Claim}>
 							Claim
 						</button>
-						{chain && chain.id === 11155111 ? (
+						{chain && chain.id === sepolia.id ? (
 							<div>Bonne chain id</div>
 						) : (
-							<button onClick={() => switchNetwork?.(11155111)}>
+							<button onClick={() => switchNetwork?.(sepolia.id)}>
 								Switch
-								{isLoading && pendingChainId === 11155111 && ' (switching)'}
+								{isLoading && pendingChainId === sepolia.id && ' (switching)'}
 							</button>
 						)}
 					</div>
