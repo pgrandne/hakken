@@ -66,9 +66,9 @@ export const ModalBridge = ({
 									<BalanceSepolia address={address} />
 									<Image
 										src="/images/arrow.gif"
-										width={35}
-										height={15}
-										className="opacity-80"
+										width={45}
+										height={5}
+										className="opacity-50"
 										alt="Picture of the author"
 									/>{" "}
 									<BalanceGoerli address={address} />
