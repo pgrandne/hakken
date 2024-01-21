@@ -44,7 +44,7 @@ export const Faucet = () => {
 					disabled={false}
 					onClick={() => switchNetwork?.(sepolia.id)}
 				>
-					Switch Network to Goerli
+					Switch Network to Sepolia
 					{isProcessing && pendingChainId === sepolia.id && ' (switching)'}
 				</button>
 			)}
