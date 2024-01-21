@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract GhoNFT is ERC721 {
+    uint256 private _nextTokenId;
     IERC20 public ghoToken;
     uint public tokenPrice;
 
@@ -13,7 +14,7 @@ contract GhoNFT is ERC721 {
         tokenPrice = 100 * 10 ** 18; // 100 GHO
     }
 
-    function mint(address to, uint tokenId) public {
+    function mint() public {
         // Require that the sender has enough GHO
         require(ghoToken.balanceOf(msg.sender) >= tokenPrice, "Not enough GHO");
 
@@ -22,19 +23,14 @@ contract GhoNFT is ERC721 {
             ghoToken.transferFrom(msg.sender, address(this), tokenPrice),
             "GHO transfer failed"
         );
+        // Autoincrement the token ID
+        uint256 tokenId = _nextTokenId++;
 
         // Mint the NFT to the sender
-        _mint(to, tokenId);
+        _mint(msg.sender, tokenId);
     }
 
-    function tokenURI(
-        uint256 tokenId
-    ) public view virtual override returns (string memory) {
-        require(
-            _exists(tokenId),
-            "ERC721Metadata: URI query for nonexistent token"
-        );
-
+    function tokenURI() public view virtual returns (string memory) {
         return "ipfs://QmNb5vEXbAjp3bVaALLpVN2HBRGM4mAAoGUffWB5Epp4f2";
     }
 }
