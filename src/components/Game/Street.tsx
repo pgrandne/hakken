@@ -11,8 +11,13 @@ export const InvisibleBox = () => {
 			<Box args={[2, 2.5, 0.1]} position={[0, -0.55, 1.6]}>
 				<meshStandardMaterial transparent opacity={0} attach='material' />
 			</Box>
-			<Box args={[2, 2.5, 5]} position={[3, -0.55, -6]}>
-				<meshStandardMaterial transparent opacity={0} attach='material' />
+			<Box args={[2, 10, 5]} position={[4, -0.55, -6]}>
+				<meshStandardMaterial
+					map={texture}
+					color='#140d1f'
+					opacity={0}
+					attach='material'
+				/>
 			</Box>
 			<Box args={[0.3, 0.5, 0.5]} position={[2, -1, 2]}>
 				<meshStandardMaterial opacity={0} attach='material' />
