@@ -65,10 +65,10 @@ export const ModalBridge = ({
 								<div className="flex justify-center gap-4 pb-6 w-2/4">
 									<BalanceSepolia address={address} />
 									<Image
-										src="/images/arrow2.gif"
-										width={55}
-										height={25}
-										className="opacity-80"	
+										src="/images/arrow.gif"
+										width={35}
+										height={15}
+										className="opacity-80"
 										alt="Picture of the author"
 									/>{" "}
 									<BalanceGoerli address={address} />
