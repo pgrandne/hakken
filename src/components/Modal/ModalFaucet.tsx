@@ -41,7 +41,7 @@ export const ModalFaucet = ({
 					<div className='flex h-auto flex-col '>
 						<div className='flex h-auto w-full items-center justify-center relative'>
 							<div className='flex h-auto w-10/12 items-center justify-center py-3 text-2xl font-bold '>
-								<h1 className='text-slate-800 '>Mint a NFT for 100 GH0!</h1>
+								<h1 className='text-slate-800 '>Claim 100 GHO!</h1>
 							</div>
 							<div
 								onClick={() => {
@@ -64,10 +64,7 @@ export const ModalFaucet = ({
 									</div>
 								</p>
 
-								<p>
-									Welcome on Gho Street. Here you can claim 100 Gho ! In next
-									shops you can bridge these Gho and collect an NFT
-								</p>
+								<p>Welcome on Gho Street. Here you can claim 100 Gho !</p>
 								<div className='w-1/6 flex bg-custom justify-center items-center flex-col p-2 rounded-md my-4'>
 									<Image
 										src='/images/gho.png'
