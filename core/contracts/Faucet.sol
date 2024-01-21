@@ -27,7 +27,7 @@ contract Faucet {
 
         // Check the balance of the sender
         uint balance = token.balanceOf(msg.sender);
-        require(balance < amount, "You already have 100 or more tokens");
+        require(balance < amount, "You already have 100 GHO or more tokens");
 
         // Transfer the tokens
         require(token.transfer(msg.sender, amount), "Transfer failed");

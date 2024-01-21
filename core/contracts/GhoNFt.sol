@@ -35,7 +35,6 @@ contract GhoNFT is ERC721 {
             "ERC721Metadata: URI query for nonexistent token"
         );
 
-        // URL fixe vers le fichier JSON
-        return "https://mywebsite.com/nft/metadata.json";
+        return "ipfs://QmNb5vEXbAjp3bVaALLpVN2HBRGM4mAAoGUffWB5Epp4f2";
     }
 }
