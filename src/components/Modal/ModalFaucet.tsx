@@ -57,7 +57,7 @@ export const ModalFaucet = ({
 						</div>
 						<div className='flex justify-center  p-2'>
 							<div className='modal-container-color rounded-md box-shadow-custom py-4 px-8 text-center text-gray-700 justify-center flex flex-col items-center'>
-								<p className='text-xl text-slate-600 pt-2 pb-4 w-1/2 font-bold'>
+								<p className='text-xl text-slate-600 pt-2 pb-4 w-full font-bold'>
 									<div className='flex justify-center gap-8 pb-6'>
 										<BalanceSepolia address={address} />
 										<BalanceGoerli address={address} />
@@ -65,7 +65,7 @@ export const ModalFaucet = ({
 								</p>
 
 								<p>Welcome on Gho Street. Here you can claim 100 Gho !</p>
-								<div className='w-1/6 flex bg-custom justify-center items-center flex-col p-2 rounded-md my-4'>
+								<div className='w-2/6 flex bg-custom justify-center items-center flex-col p-2 rounded-md my-4'>
 									<Image
 										src='/images/gho.png'
 										width={40}
