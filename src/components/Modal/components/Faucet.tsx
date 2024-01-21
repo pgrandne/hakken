@@ -1,7 +1,6 @@
 import {
 	useContractWrite,
 	useNetwork,
-	usePrepareContractWrite,
 	useSwitchNetwork,
 	useWaitForTransaction,
 } from 'wagmi'
@@ -41,7 +40,6 @@ export const Faucet = () => {
 			) : (
 				<button
 					className='custom-button'
-					disabled={false}
 					onClick={() => switchNetwork?.(sepolia.id)}
 				>
 					Switch Network to Sepolia

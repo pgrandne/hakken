@@ -12,11 +12,11 @@ This is a Web3 experiment we made to practice with 3D modeling. The ghost stroll
 
 ## Deployments
 
-| Contract            | Network | Address                                                     |
-| ------------------- | ------- | ----------------------------------------------------------- |
-| Faucet.sol          | Seoplia | [address](https://sepolia.etherscan.io/address#code)        |
-| TokenTransferor.sol | Sepolia | [address] (https://sepolia.etherscan.io/address#code)       |
-| GhoNFT              | Goerli  | [address](https://goerli.etherscan.io/address/address#code) |
+| Contract            | Network | Address                                                                                                                             |
+| ------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Faucet.sol          | Seoplia | [0x3247AbF0cd81Be49e6FbaBe616C15F90B4cB9Ad7](https://sepolia.etherscan.io/address/0x3247AbF0cd81Be49e6FbaBe616C15F90B4cB9Ad7#code)  |
+| TokenTransferor.sol | Sepolia | [0x5Da01967D6b64c5b7B112536BdA473768Bd104C2] (https://sepolia.etherscan.io/address/0x5Da01967D6b64c5b7B112536BdA473768Bd104C2#code) |
+| GhoNFT              | Goerli  | [0x4b0c7207288233092757FB74Ad6138DC25B03E15](https://goerli.etherscan.io/address/0x4b0c7207288233092757FB74Ad6138DC25B03E15#code)   |
 
 This is a [Next.js](https://nextjs.org/) project
 

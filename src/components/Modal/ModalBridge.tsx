@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { IconCross } from '../../utils/IconCross'
 import { BalanceSepolia } from './components/BalanceSepolia'
 import { BalanceGoerli } from './components/BalanceGoerli'
+import { Transfer } from './components/Transfer'
+import { Bridge } from './components/Bridge'
 
 export const ModalBridge = ({
 	address,
@@ -74,10 +76,8 @@ export const ModalBridge = ({
 									<BalanceGoerli address={address} />
 								</div>
 								<div className='flex justify-center p-4 gap-6 w-full'>
-									<button className='custom-button'>Approve</button>
-									<button className='custom-button' disabled>
-										Bridge
-									</button>
+									<Transfer />
+									<Bridge address={address} />
 								</div>
 							</div>
 						</div>

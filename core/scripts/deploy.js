@@ -7,8 +7,12 @@
 const hre = require('hardhat')
 
 async function main() {
-	const GhoToken = '0xcbE9771eD31e761b744D3cB9eF78A1f32DD99211'
-	const contract = await hre.ethers.deployContract('GhoNFT', [GhoToken])
+	const Router = '0x0bf3de8c5d3e8a2b34d2beeb17abfcebaf363a59'
+	const Link = '0x779877A7B0D9E8603169DdbD7836e478b4624789'
+	const contract = await hre.ethers.deployContract('TokenTransferor', [
+		Router,
+		Link,
+	])
 
 	await contract.waitForDeployment()
 
