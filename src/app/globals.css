@@ -28,7 +28,10 @@
     color: rgb(221 214 254 / var(--tw-text-opacity));
   }
   .bg-custom{
-    background-image: linear-gradient(rgb(73, 73, 133), rgb(46, 37, 114) );
+    background-image: linear-gradient(rgb(82 82 116), rgb(46, 37, 114) );
+  }
+  .modal-container-color{
+    background-color: #e7e4ec43;
   }
   .box-shadow-custom{
     box-shadow: 2px 12px 20px 0px #48475b;
@@ -49,8 +52,8 @@
   }
 
   .JNgZB{
-    --ck-connectbutton-background: rgb(160, 169, 221) !important;
-    background-image: linear-gradient(rgb(162, 172, 229) , rgb(108, 114, 147) ) !important;
+    --ck-connectbutton-background: linear-gradient(to right, #9f7fd7, #4C6EF5) !important;
+    --ck-connectbutton-hover-background: linear-gradient(to right, #c5bae3, #d5b8f2, #c5a4da )  #e1b5f3 !important;
   }
   
   
