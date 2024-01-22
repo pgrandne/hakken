@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 import Image from 'next/image'
 import { IconCross } from '../../utils/IconCross'
 import { BalanceSepolia } from './components/BalanceSepolia'
-import { BalanceGoerli } from './components/BalanceGoerli'
+import { BalanceArbitrum } from './components/BalanceArbitrum'
 import { Transfer } from './components/Transfer'
 import { Bridge } from './components/Bridge'
 
@@ -62,7 +62,7 @@ export const ModalBridge = ({
 								<div className='flex items-center p-4 gap-2'>
 									<span className='font-bold'>Sepolia</span>
 									to
-									<span className='font-bold'>Goerli</span>
+									<span className='font-bold'>Arbitrum Sepolia</span>
 								</div>
 								<div className='flex justify-center gap-4 pb-6 w-2/4'>
 									<BalanceSepolia address={address} />
@@ -73,7 +73,7 @@ export const ModalBridge = ({
 										className='opacity-50'
 										alt='Picture of the author'
 									/>{' '}
-									<BalanceGoerli address={address} />
+									<BalanceArbitrum address={address} />
 								</div>
 								<div className='flex justify-center p-4 gap-6 w-full'>
 									<Transfer />

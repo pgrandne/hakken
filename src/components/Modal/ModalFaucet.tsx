@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 import { useNetwork, useSwitchNetwork } from 'wagmi'
 import { BalanceSepolia } from './components/BalanceSepolia'
-import { BalanceGoerli } from './components/BalanceGoerli'
+import { BalanceArbitrum } from './components/BalanceArbitrum'
 import { Faucet } from './components/Faucet'
 import { toast } from 'react-toastify'
 import { IconCross } from '../../utils/IconCross'
@@ -60,7 +60,7 @@ export const ModalFaucet = ({
 								<p className='text-xl text-slate-600 pt-2 pb-4 w-full font-bold'>
 									<div className='flex justify-center gap-8 pb-6'>
 										<BalanceSepolia address={address} />
-										<BalanceGoerli address={address} />
+										<BalanceArbitrum address={address} />
 									</div>
 								</p>
 

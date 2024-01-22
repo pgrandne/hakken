@@ -1,10 +1,10 @@
 import { getDefaultConfig } from 'connectkit'
 import { createConfig } from 'wagmi'
-import { goerli, sepolia } from 'wagmi/chains'
+import { arbitrumSepolia, sepolia } from 'wagmi/chains'
 
 const alchemyId = process.env.ALCHEMY_ID
 const walletConnectProjectId = process.env.WALLETCONNECT_PROJECT_ID!
-const chains = [goerli, sepolia]
+const chains = [sepolia, arbitrumSepolia]
 
 export const config = createConfig(
 	getDefaultConfig({

@@ -7,7 +7,7 @@ import { useState } from 'react'
 import { ModalBridge, ModalFaucet, ModalReward } from '../components/Modal'
 import Image from 'next/image'
 import { Raleway } from 'next/font/google'
-import { goerli, sepolia } from 'wagmi/chains'
+import { arbitrumSepolia, sepolia } from 'wagmi/chains'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -48,7 +48,7 @@ export default function Home() {
 				{isConnected &&
 				address &&
 				chain &&
-				(chain.id === sepolia.id || chain.id === goerli.id) ? (
+				(chain.id === sepolia.id || chain.id === arbitrumSepolia.id) ? (
 					<Game setModal={setModal} />
 				) : (
 					<div

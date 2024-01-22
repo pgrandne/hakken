@@ -2,9 +2,9 @@ import { Dispatch, SetStateAction, useState } from 'react'
 import { IconCross } from '../../utils/IconCross'
 import Image from 'next/image'
 import { BalanceSepolia } from './components/BalanceSepolia'
-import { BalanceGoerli } from './components/BalanceGoerli'
+import { BalanceArbitrum } from './components/BalanceArbitrum'
 import { useNetwork, useSwitchNetwork } from 'wagmi'
-import { goerli } from 'wagmi/chains'
+import { arbitrumSepolia } from 'wagmi/chains'
 import { Approve } from './components/Approve'
 import { GhoNFTContract, GhoToken } from '../../utils/contract'
 import { Mint } from './components/Mint'
@@ -57,9 +57,9 @@ export const ModalReward = ({
 								<p className='text-xl text-slate-600 pt-2 pb-4  font-bold'>
 									<div className='flex justify-center gap-8 pb-6'>
 										<BalanceSepolia address={address} />
-										<BalanceGoerli address={address} />
+										<BalanceArbitrum address={address} />
 									</div>
-									You can mint a NFT on Goerli with 100 GHO
+									You can mint a NFT on Arbitrum Sepolia with 100 GHO
 								</p>
 								<div className='bg-gradient-to-b from-fuchsia-900 to-sky-600  to-sky-700   flex box-shadow-custom justify-center items-center flex-col p-4 rounded-md '>
 									<Image
@@ -71,10 +71,10 @@ export const ModalReward = ({
 									/>
 								</div>
 								<div className='flex justify-center p-4 gap-6 w-full'>
-									{chain && chain.id === goerli.id ? (
+									{chain && chain.id === arbitrumSepolia.id ? (
 										<>
 											<Approve
-												contractGhoAddress={GhoToken.Goerli}
+												contractGhoAddress={GhoToken.ArbitrumSepolia}
 												contractReceiptAddress={GhoNFTContract}
 											/>
 											<Mint />
@@ -82,11 +82,11 @@ export const ModalReward = ({
 									) : (
 										<button
 											className='custom-button'
-											onClick={() => switchNetwork?.(goerli.id)}
+											onClick={() => switchNetwork?.(arbitrumSepolia.id)}
 										>
-											Switch Network to Goerli
+											Switch Network to Arbitrum Sepolia
 											{isLoading &&
-												pendingChainId === goerli.id &&
+												pendingChainId === arbitrumSepolia.id &&
 												' (switching)'}
 										</button>
 									)}
