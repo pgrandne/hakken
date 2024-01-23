@@ -1,14 +1,17 @@
 # Hakken
 
 A journey in a japan street to discover Web3 with first transactions
+Update : We replaced Goerli network by Arbitrum Sepolia for CCIP Bridge
 
 ## Description
 
 This is a Web3 experiment we made to practice with 3D modeling. The ghost strolls in a Tokyo street during the night. There are 3 tasks to execute across it:
 
 - Claim 100 GHO on Sepolia
-- Bridge these 100 GHO from Sepolia to Goerli
-- Mint a NFT on Goerli with these 100 GHO The first action is very simple to find, the second one is a little bit moredifficult to find because the indication is smaller and there is no indication for the third one.
+- Bridge these 100 GHO from Sepolia to ~~Goerli~~ Arbitrum Sepolia
+- Mint a NFT on ~~Goerli~~ Arbitrum Sepolia with these 100 GHO T
+
+The first action is very simple to find, the second one is a little bit moredifficult to find because the indication is smaller and there is no indication for the third one.
 
 ## Deployments
 
